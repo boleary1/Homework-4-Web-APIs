@@ -1,1 +1,18 @@
-style.css
+*, *::before, *::after{
+    box-sizing: border-box;
+
+}
+
+.body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 800px
+    max-width: width 80%;
+}
