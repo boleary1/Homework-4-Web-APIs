@@ -1,29 +1,29 @@
-var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
+// var timeEl = document.querySelector(".time");
+// var mainEl = document.getElementById("main");
 
-var secondsLeft = 60;
+// var secondsLeft = 60;
 
-function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left.";
+// function setTime() {
+//   var timerInterval = setInterval(function() {
+//     secondsLeft--;
+//     timeEl.textContent = secondsLeft + " seconds left.";
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
-    }
+//     if(secondsLeft === 0) {
+//       clearInterval(timerInterval);
+//       sendMessage();
+//     }
 
-  }, 1000);
-}
+//   }, 1000);
+// }
 
-function sendMessage() {
-  timeEl.textContent = " ";
+// function sendMessage() {
+//   timeEl.textContent = " ";
 
-  var imgEl = document.createElement("img");
+//   var imgEl = document.createElement("img");
 
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
+//   imgEl.setAttribute("src", "images/image_1.jpg");
+//   mainEl.appendChild(imgEl);
 
-}
+// }
 
-setTime();
+// setTime();
