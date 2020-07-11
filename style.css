@@ -12,10 +12,11 @@
     justify-content: center;
     align-items: center;
 }
-/* .container {
-    width: 800px
-    max-width: width 80%;
-} */
+.container {
+    width: 800px;
+    max-width: 80%;
+
+}
 
 .btn-grid{
     display: grid;
