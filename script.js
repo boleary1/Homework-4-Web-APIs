@@ -4,13 +4,14 @@ const questionContainerElement = document.getElementById('question-container')
 const questionsEl = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 
-let shuffledQuestions, currentQuestionIndex
+let shuffledQuestions
+let currentQuestionIndex
+
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
     console.log ('nextButton clicked')
-    currrentQuestionIndex ++ ;
-    
+    currentQuestionIndex ++ ;
     setNextQuestion()
 })
 
