@@ -12,13 +12,24 @@
     justify-content: center;
     align-items: center;
 }
+.body.correct {
+    background-color: green;
+}
+.body.wrong {
+    background-color: red;
+}
 .container {
     width: 800px;
     max-width: 80%;
 
 }
 
-.btn-grid, .controls{
+.controls{
+    justify-content: center;
+    width: auto;
+}
+
+.btn-grid{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
@@ -27,6 +38,32 @@
 
 .btn{
     border: 1px solid black;
+    border-radius: 5px;
     color: white;
     background-color: rebeccapurple;
+}
+
+.btn:hover {
+    border: 2px solid black
+}
+
+.btn.correct {
+    background-color: green;
+}
+.btn.wrong {
+    background-color: red;
+}
+.start-btn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
 }

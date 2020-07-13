@@ -1,12 +1,28 @@
+<!-- used https://www.youtube.com/watch?v=riDzcEQbX6k as a source -->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- We need to bring in the bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"> </script> <!-- defer so that it loads after the body -->
     <title>Web APIs</title>
 </head>
+
+<!-- <nav class="navbar navbar-light bg-light">
+    <span class="navbar-text">
+      Navbar text with an inline element
+    </span>
+  </nav> -->
+
 <body class="body">
     <div class="container">
         <div id="question-container" class="hide">
@@ -21,8 +37,9 @@
         </div>
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
-            <button id="high-score-btn" class="high-score-btn btn">High Scores</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
     </div>
 </body>
+
 </html>
