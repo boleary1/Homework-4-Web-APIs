@@ -1,15 +1,15 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
-
 const questionsEl = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () =>{
+nextButton.addEventListener('click', () => {
     currrentQuestionIndex++
+    console.log ('nextButton clicked')
     setNextQuestion()
 })
 
