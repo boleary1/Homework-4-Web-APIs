@@ -6,6 +6,7 @@ const timeEl = document.querySelector(".time");
 let currentQuestionIndex;
 let score ;
 let secondsLeft;
+let timerInterval; // added here to try to stop the timer when questions run out
 
 startButton.addEventListener('click', startGame)
 
@@ -33,9 +34,14 @@ function timer (){ //begin the timer
         
         timeEl.textContent = secondsLeft + " seconds left.";
         secondsLeft--;
+
         if(secondsLeft === 0) {
           clearInterval(timerInterval);
         timeEl.textContent = "times up!"
+         }
+         if (currentQuestionIndex == Questions.length - 1) {
+             console.log('out of questions')
+             clearInterval(timerInterval); //timer stops now
          }
     
       }, 1000);
@@ -84,7 +90,10 @@ function selectAnswer(e) {
         setTimeout(() => {
             startButton.innerText ='restart'
             startButton.classList.remove('hide')
+            // console.log('I want the timer to stop now')
+            // clearInterval(timerInterval); //added here to try to stop the timer when questions run out
             resetState()
+
         }, 750); //set time between questions
     }
     if (selectedButton.dataset = correct) {
