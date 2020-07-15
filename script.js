@@ -28,7 +28,7 @@ function setNextQuestion() {
 
 }
 
-function timer (){
+function timer (){ //begin the timer
     let timerInterval = setInterval(function() {
         
         timeEl.textContent = secondsLeft + " seconds left.";
