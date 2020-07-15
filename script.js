@@ -6,6 +6,7 @@ const timeEl = document.querySelector(".time");
 let currentQuestionIndex;
 let score ;
 let secondsLeft;
+let finalScore;
 let timerInterval; // added here to try to stop the timer when questions run out
 
 startButton.addEventListener('click', startGame)
@@ -42,6 +43,9 @@ function timer (){ //begin the timer
          if (currentQuestionIndex == Questions.length - 1) {
              console.log('out of questions')
              clearInterval(timerInterval); //timer stops now
+             finalScore = score + secondsLeft + 2 //sums up score and time for a final score
+             console.log(finalScore)
+
          }
     
       }, 1000);
@@ -130,7 +134,9 @@ const Questions = [
         question: 'what is 2 + 8',
         answers: [
             { text: '10', correct: true },
-            { text: '22', correct: false }
+            { text: '22', correct: false },
+            { text: '92', correct: false },
+            { text: '29', correct: false }
         ]
     },
     {
