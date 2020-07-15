@@ -13,7 +13,6 @@ startButton.addEventListener('click', startGame)
 
 function startGame() {
  
-    console.log('start game function working')
     startButton.classList.add('hide')
     currentQuestionIndex = 0
     score = 0
@@ -44,13 +43,12 @@ function timer (){ //begin the timer
              console.log('out of questions')
              clearInterval(timerInterval); //timer stops now
              finalScore = score + secondsLeft + 2 //sums up score and time for a final score
-             console.log(finalScore)
+             console.log("final score: ", finalScore );
 
          }
     
       }, 1000);
 }
-
 
 
 
@@ -69,7 +67,7 @@ function showQuestion(question) {
         button.classList.add('btn')
         if (answer.correct) {
             button.dataset.correct = answer.correct
-            console.log(score)
+            // console.log(score)
         }
         button.addEventListener('click', selectAnswer)
         answerButtonEl.appendChild(button)
@@ -102,6 +100,9 @@ function selectAnswer(e) {
     }
     if (selectedButton.dataset = correct) {
         ++ score; //tried moving ++ before to make it increment before displaying
+     }
+     else{
+         timerInterval-5
      }
      document.getElementById('right-answers').innerHTML = score; //moved to the bottom of the function, because it was not incrimenting correct
 
