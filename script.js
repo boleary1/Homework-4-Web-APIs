@@ -76,7 +76,7 @@ function timer() { //begin the timer
 username.addEventListener("keyup", () => { //if there is text in the username box, save score button is enabled
     saveScoreButton.disabled = !username.value
 });
-saveScoreButton.addEventListener("click", formReset.reset())
+saveScoreButton.addEventListener()
 
 
 saveHighScore = e => {
