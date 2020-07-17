@@ -4,9 +4,16 @@ const questionsEl = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 const rulesEl = document.getElementById('rules')
 const gameOverEl = document.getElementById('gameOver')
+const submittedEl = document.getElementById('submitted')
 const timeEl = document.querySelector(".time");
 const username = document.getElementById('usernameText');
 const saveScoreButton = document.getElementById('submit-btn');
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const highScoresList = document.getElementById('highScoresList');
+console.log(highScoresList)
+
+const maxHighScores = 5;
+let finalScoreEl = document.getElementById('finalScoreDisplay');
 let currentQuestionIndex;
 let score;
 let secondsLeft;
@@ -14,6 +21,7 @@ let finalScore;
 let timerInterval; // added here to try to stop the timer when questions run out
 
 startButton.addEventListener('click', startGame)
+printHighScores()
 
 function startGame() {
 
@@ -25,6 +33,7 @@ function startGame() {
     questionContainerElement.classList.remove('hide')
     rulesEl.classList.add('hide')
     gameOverEl.classList.add('hide')
+    submittedEl.classList.add('hide')
     setNextQuestion()
 
 }
@@ -41,7 +50,7 @@ function timer() { //begin the timer
         timeEl.textContent = secondsLeft + " seconds left.";
         secondsLeft--;
 
-        if (secondsLeft === -1) { //moved from 0 to -1 do display would count down to 1
+        if (secondsLeft <= -1) { //moved from 0 to -1 do display would count down to 1, moved from === to <= so that it can't go negative
             clearInterval(timerInterval);
             timeEl.textContent = "times up!"
         }
@@ -49,7 +58,8 @@ function timer() { //begin the timer
             console.log('out of questions')
             clearInterval(timerInterval); //timer stops now
             finalScore = (score * 3) + secondsLeft + 2 //sums up score and time for a final score
-            console.log("final score: ", finalScore);
+            console.log("final score: ", finalScoreEl);
+            finalScoreEl.innerText = 'Your score is: ' + finalScore;
 
         }
 
@@ -57,13 +67,37 @@ function timer() { //begin the timer
     }, 1000);
 }
 
-username.addEventListener("keyup", () => {
+username.addEventListener("keyup", () => { //if there is text in the username box, save score button is enabled
     saveScoreButton.disabled = !username.value
 });
 
 saveHighScore = e => {
     e.preventDefault(); //stops page from refreshing automatically, might not need
-    console.log("submit button")
+    const playerScore = {
+        score: finalScore,
+        name: username.value
+    }
+    highScores.push(playerScore)
+    highScores.sort((a, b) => {
+        return parseInt(b.score) - parseInt(a.score);
+    })
+    highScores.splice(5);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    printHighScores();
+    gameOverEl.classList.add('hide');
+    submittedEl.classList.remove('hide')
+
+};
+function printHighScores() {
+    highScoresList.innerHTML = ""
+    highScores.map(score => {
+        // console.log('<li>${score.name}-${score.score}</li>');
+        console.log(score)
+        var li = document.createElement('li')
+        li.innerHTML = score.name + " - " + score.score
+        console.log(li)
+        highScoresList.appendChild(li)
+    });
 };
 
 function resetState() {
@@ -95,9 +129,15 @@ function selectAnswer(e) {
     Array.from(answerButtonEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    if (Questions.length > currentQuestionIndex + 1) { //checks for more questions
+    currentQuestionIndex++;
+    answerButtonEl.disabled;
+
+    if (currentQuestionIndex < Questions.length ) { //checks for more questions
+
         setTimeout(() => {
-            currentQuestionIndex++;
+
+            answerButtonEl.disabled = true;
+
             setNextQuestion();
         }, 500); //set time between questions
 
@@ -109,8 +149,7 @@ function selectAnswer(e) {
             questionContainerElement.classList.add('hide')
             gameOverEl.classList.remove('hide')
 
-            // console.log('I want the timer to stop now')
-            // clearInterval(timerInterval); //added here to try to stop the timer when questions run out
+            clearInterval(timerInterval); //added here to try to stop the timer when questions run out
             resetState()
 
         }, 750); //set time between questions
@@ -120,11 +159,10 @@ function selectAnswer(e) {
     }
     else {
         secondsLeft -= 2 //subtracting for wrong answers
-        console.log('timecheck', secondsLeft)
 
     }
 
-    document.getElementById('right-answers').innerHTML = score; //moved to the bottom of the function, because it was not incrimenting correct
+    // document.getElementById('right-answers').innerHTML = score; //moved to the bottom of the function, because it was not incrimenting correct
 
 }
 

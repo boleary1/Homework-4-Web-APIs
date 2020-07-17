@@ -49,7 +49,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <ol id= "highScoresList"> </ol>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -62,20 +62,27 @@
             <h3>Welcome to the quiz!</h3>
             <h6>Press start to begin answer the questions as fast as you can.</h6>
             <p> -You earn 3 points for every correct answer.
+                <br> -You will lose 2 seconds from the timer for each incorrect answer. 
                 <br> -You earn 1 point for every second that is left over.
-                <br> -You will lose 2 seconds from the timer for each incorrect answer. </p>
+                </p>
         </div>
         <div id="gameOver" class="hide">
-            <h3>The quiz is over!</h3>
+            <h3 id= "finalScoreDisplay"></h3>
+            
+            <h6>Enter your name, and press save to see how you rank in the high scores.</h6>
             <form id="usernameForm" method="POST">
                 <input type="text" placeholder="Enter your name?" name="username-text" id="usernameText" /> 
                 <button id="submit-btn" class="submit-btn btn " onclick="saveHighScore(event)" disabled>Submit Score</button>
             </form>
-            <h6>Press start to begin answer the questions as fast as you can.</h6>
-            <p> -You earn 3 points for every correct answer.
-                <br> -You earn 1 point for every second that is left over </p>
         </div>
-        <span id="right-answers"></span>
+        <div id="submitted">
+            <h3 id= "finalScoreDisplay"></h3>
+            <h6>You Have submitted your score!</h6>
+            <p> -Check the high score list to see how you did.
+                <br> -Press restart to try again. 
+                </p>
+        </div>
+        <!-- <span id="right-answers"></span> -->
         <h1 class="time"></h1>
         <br>
         <div id="question-container" class="hide">
