@@ -21,10 +21,10 @@
 </head>
 <nav class="navbar navbar-light bg-light">
     <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">High Scores</button> -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            High Scores
-        </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        High Scores
+    </button>
     <a class="navbar-brand time"> 10 seconds left. </a>
 
 
@@ -68,7 +68,8 @@
         <div id="gameOver" class="hide">
             <h3>The quiz is over!</h3>
             <form id="usernameForm" method="POST">
-                <input type="text" placeholder="Enter your name?" name="username-text" id="username-text" />
+                <input type="text" placeholder="Enter your name?" name="username-text" id="usernameText" /> 
+                <button id="submit-btn" class="submit-btn btn " onclick="saveHighScore(event)" disabled>Submit Score</button>
             </form>
             <h6>Press start to begin answer the questions as fast as you can.</h6>
             <p> -You earn 3 points for every correct answer.

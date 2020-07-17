@@ -5,8 +5,10 @@ const answerButtonEl = document.getElementById('answer-buttons')
 const rulesEl = document.getElementById('rules')
 const gameOverEl = document.getElementById('gameOver')
 const timeEl = document.querySelector(".time");
+const username = document.getElementById('usernameText');
+const saveScoreButton = document.getElementById('submit-btn');
 let currentQuestionIndex;
-let score ;
+let score;
 let secondsLeft;
 let finalScore;
 let timerInterval; // added here to try to stop the timer when questions run out
@@ -14,7 +16,7 @@ let timerInterval; // added here to try to stop the timer when questions run out
 startButton.addEventListener('click', startGame)
 
 function startGame() {
- 
+
     startButton.classList.add('hide')
     currentQuestionIndex = 0
     score = 0
@@ -24,7 +26,7 @@ function startGame() {
     rulesEl.classList.add('hide')
     gameOverEl.classList.add('hide')
     setNextQuestion()
-   
+
 }
 
 function setNextQuestion() {
@@ -33,29 +35,36 @@ function setNextQuestion() {
 
 }
 
-function timer (){ //begin the timer
-    let timerInterval = setInterval(function() {
-        
+function timer() { //begin the timer
+    let timerInterval = setInterval(function () {
+
         timeEl.textContent = secondsLeft + " seconds left.";
         secondsLeft--;
 
-        if(secondsLeft === -1) { //moved from 0 to -1 do display would count down to 1
-          clearInterval(timerInterval);
-        timeEl.textContent = "times up!"
-         }
-         if (currentQuestionIndex == Questions.length - 1) {
-             console.log('out of questions')
-             clearInterval(timerInterval); //timer stops now
-             finalScore = (score * 3 )+ secondsLeft + 2 //sums up score and time for a final score
-             console.log("final score: ", finalScore );
+        if (secondsLeft === -1) { //moved from 0 to -1 do display would count down to 1
+            clearInterval(timerInterval);
+            timeEl.textContent = "times up!"
+        }
+        if (currentQuestionIndex == Questions.length - 1) {
+            console.log('out of questions')
+            clearInterval(timerInterval); //timer stops now
+            finalScore = (score * 3) + secondsLeft + 2 //sums up score and time for a final score
+            console.log("final score: ", finalScore);
 
-         }
+        }
 
-    
-      }, 1000);
+
+    }, 1000);
 }
 
+username.addEventListener("keyup", () => {
+    saveScoreButton.disabled = !username.value
+});
 
+saveHighScore = e => {
+    e.preventDefault(); //stops page from refreshing automatically, might not need
+    console.log("submit button")
+};
 
 function resetState() {
     clearStatusClass(document.body)
@@ -95,7 +104,7 @@ function selectAnswer(e) {
     }
     else {
         setTimeout(() => { //if the questions run out this happens
-            startButton.innerText ='restart'
+            startButton.innerText = 'restart'
             startButton.classList.remove('hide')
             questionContainerElement.classList.add('hide')
             gameOverEl.classList.remove('hide')
@@ -107,15 +116,15 @@ function selectAnswer(e) {
         }, 750); //set time between questions
     }
     if (selectedButton.dataset = correct) {
-        score ++; //tried moving ++ before to make it increment before displaying
-     }
-     else{
-         secondsLeft -- //trying to subtract time for wrong answers
-         console.log('timecheck' , secondsLeft)
+        score++; //tried moving ++ before to make it increment before displaying
+    }
+    else {
+        secondsLeft -= 2 //subtracting for wrong answers
+        console.log('timecheck', secondsLeft)
 
-     }
+    }
 
-     document.getElementById('right-answers').innerHTML = score; //moved to the bottom of the function, because it was not incrimenting correct
+    document.getElementById('right-answers').innerHTML = score; //moved to the bottom of the function, because it was not incrimenting correct
 
 }
 
