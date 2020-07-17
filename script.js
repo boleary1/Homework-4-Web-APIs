@@ -10,8 +10,7 @@ const username = document.getElementById('usernameText');
 const saveScoreButton = document.getElementById('submit-btn');
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const highScoresList = document.getElementById('highScoresList');
-console.log(highScoresList)
-
+const formReset = document.getElementById('usernameForm')
 const maxHighScores = 5;
 let finalScoreEl = document.getElementById('finalScoreDisplay');
 let currentQuestionIndex;
@@ -22,6 +21,8 @@ let timerInterval; // added here to try to stop the timer when questions run out
 
 startButton.addEventListener('click', startGame)
 printHighScores()
+submittedEl.classList.add('hide')
+
 
 function startGame() {
 
@@ -34,7 +35,7 @@ function startGame() {
     rulesEl.classList.add('hide')
     gameOverEl.classList.add('hide')
     submittedEl.classList.add('hide')
-    setNextQuestion()
+    setNextQuestion();
 
 }
 
@@ -53,12 +54,16 @@ function timer() { //begin the timer
         if (secondsLeft <= -1) { //moved from 0 to -1 do display would count down to 1, moved from === to <= so that it can't go negative
             clearInterval(timerInterval);
             timeEl.textContent = "times up!"
+            finalScore = (score * 3) + secondsLeft +1  //sums up score and time for a final score
+            finalScoreEl.innerText = 'Your score is: ' + finalScore;
+            startButton.innerText = 'restart'
+            startButton.classList.remove('hide')
+            questionContainerElement.classList.add('hide')
+            gameOverEl.classList.remove('hide')
         }
-        if (currentQuestionIndex == Questions.length - 1) {
-            console.log('out of questions')
+        if (currentQuestionIndex == Questions.length) {
             clearInterval(timerInterval); //timer stops now
-            finalScore = (score * 3) + secondsLeft + 2 //sums up score and time for a final score
-            console.log("final score: ", finalScoreEl);
+            finalScore = (score * 3) + secondsLeft +1  //sums up score and time for a final score
             finalScoreEl.innerText = 'Your score is: ' + finalScore;
 
         }
@@ -67,9 +72,12 @@ function timer() { //begin the timer
     }, 1000);
 }
 
+
 username.addEventListener("keyup", () => { //if there is text in the username box, save score button is enabled
     saveScoreButton.disabled = !username.value
 });
+saveScoreButton.addEventListener("click", formReset.reset())
+
 
 saveHighScore = e => {
     e.preventDefault(); //stops page from refreshing automatically, might not need
@@ -92,10 +100,8 @@ function printHighScores() {
     highScoresList.innerHTML = ""
     highScores.map(score => {
         // console.log('<li>${score.name}-${score.score}</li>');
-        console.log(score)
         var li = document.createElement('li')
         li.innerHTML = score.name + " - " + score.score
-        console.log(li)
         highScoresList.appendChild(li)
     });
 };
@@ -132,7 +138,8 @@ function selectAnswer(e) {
     currentQuestionIndex++;
     answerButtonEl.disabled;
 
-    if (currentQuestionIndex < Questions.length ) { //checks for more questions
+    if (Questions.length > currentQuestionIndex ) { //checks for more questions
+    // if (currentQuestionIndex + 1 <= Questions.length ) { //checks for more questions
 
         setTimeout(() => {
 
