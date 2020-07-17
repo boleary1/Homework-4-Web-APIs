@@ -134,6 +134,8 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+
+
 const Questions = [
     {
         question: 'what is 2 + 2',

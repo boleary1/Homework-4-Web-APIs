@@ -9,15 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- We need to bring in the bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css" />
+
     <script defer src="script.js"> </script> <!-- defer so that it loads after the body -->
+
+
     <title>Web APIs</title>
 </head>
 <nav class="navbar navbar-light bg-light">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">High Scores</button>
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">High Scores</button> -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            High Scores
+        </button>
     <a class="navbar-brand time"> 10 seconds left. </a>
 
 
@@ -26,9 +33,31 @@
 
 
 <body class="body">
-    <script defer src="script.js"> </script> <!-- defer so that it loads after the body -->
+
 
     <div class="container">
+
+        <!-- Modal- taken from bootstrap-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">High Scores</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="rules">
             <h3>Welcome to the quiz!</h3>
             <h6>Press start to begin answer the questions as fast as you can.</h6>
@@ -38,6 +67,9 @@
         </div>
         <div id="gameOver" class="hide">
             <h3>The quiz is over!</h3>
+            <form id="usernameForm" method="POST">
+                <input type="text" placeholder="Enter your name?" name="username-text" id="username-text" />
+            </form>
             <h6>Press start to begin answer the questions as fast as you can.</h6>
             <p> -You earn 3 points for every correct answer.
                 <br> -You earn 1 point for every second that is left over </p>
@@ -61,6 +93,15 @@
 
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
