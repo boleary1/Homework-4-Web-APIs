@@ -18,9 +18,9 @@
 </head>
 <nav class="navbar navbar-light bg-light">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">High Scores</button>
-    <a class="navbar-brand time"> 10 seconds left. </a> 
+    <a class="navbar-brand time"> 10 seconds left. </a>
 
-    
+
 
 </nav>
 
@@ -29,6 +29,19 @@
     <script defer src="script.js"> </script> <!-- defer so that it loads after the body -->
 
     <div class="container">
+        <div id="rules">
+            <h3>Welcome to the quiz!</h3>
+            <h6>Press start to begin answer the questions as fast as you can.</h6>
+            <p> -You earn 3 points for every correct answer.
+                <br> -You earn 1 point for every second that is left over.
+                <br> -You will lose 2 seconds from the timer for each incorrect answer. </p>
+        </div>
+        <div id="gameOver" class="hide">
+            <h3>The quiz is over!</h3>
+            <h6>Press start to begin answer the questions as fast as you can.</h6>
+            <p> -You earn 3 points for every correct answer.
+                <br> -You earn 1 point for every second that is left over </p>
+        </div>
         <span id="right-answers"></span>
         <h1 class="time"></h1>
         <br>
