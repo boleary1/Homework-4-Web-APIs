@@ -6,9 +6,9 @@
 
 
 ## **Description:**
-Website built in early June 2020.  PAssword generator works.  creates passwords between 8 and 128 charecters.  with the option to include lowercase letters, upercase letters, numbers and symbols.
+Website built in Mid July 2020.  Quiz works.  Ask questions.  Give 3 points for a correct answer.  subtracts 2 seconds for a wrong answer.  gives one point for every remaining second.  
 
-Last edit was 7/9/2020 by Brian O'leary.  Contact oleary.brian1@gmail.com with any questions.
+Last edit was 7/18/2020 by Brian O'leary.  Contact oleary.brian1@gmail.com with any questions.
 
 ## **Screenshot:**
 

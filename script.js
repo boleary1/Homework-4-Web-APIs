@@ -191,10 +191,12 @@ function clearStatusClass(element) {
 
 const Questions = [
     {
-        question: 'what is 2 + 2',
+        question: 'Inside which HTML element do we put the JavaScript?',
         answers: [
-            { text: '4', correct: true },
-            { text: '22', correct: false }
+            { text: '<js>', correct: false },
+            { text: '<javascript>', correct: false },
+            { text: '<scripting>', correct: false },
+            { text: '<script>', correct: true }
         ]
     },
     {
@@ -207,17 +209,36 @@ const Questions = [
         ]
     },
     {
-        question: 'what is 2 + 20',
+        question: 'Where is the correct place to insert a JavaScript?',
         answers: [
-            { text: '22', correct: true },
-            { text: '6', correct: false }
+            { text: 'The <head> section', correct: false },
+            { text: 'Both the <head> section and the <body> section are correct', correct: true },
+            { text: 'The <body> section  ', correct: false }
         ]
     },
     {
-        question: 'what is 2 + 2',
+        question: 'The external JavaScript file must contain the <script> tag.',
         answers: [
-            { text: '4', correct: true },
-            { text: '22', correct: false }
+            { text: 'True', correct: true },
+            { text: 'false', correct: false }
         ]
-    }
+    },
+    {
+        question: 'How do you write "Hello World" in an alert box?',
+        answers: [
+            { text: 'alert("Hello World");  ', correct: true },
+            { text: 'msgBox("Hello World");', correct: false },
+            { text: 'alertBox("Hello World");', correct: false },
+            { text: 'msg("Hello World");', correct: false }
+        ]
+    },
+    {
+        question: 'Which event occurs when the user clicks on an HTML element?',
+        answers: [
+            { text: 'onmouseover', correct: false },
+            { text: 'onchange', correct: false },
+            { text: 'onclick', correct: true },
+            { text: 'onmouseclick', correct: false }
+        ]
+    },
 ]
