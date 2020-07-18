@@ -1,3 +1,22 @@
+## Live website URL:
+[live website](https://boleary1.github.io/Homework-4-Web-APIs/)
+</br>
+[GitHub Repository](https://github.com/boleary1/Homework-4-Web-APIs)
+
+
+
+## **Description:**
+Website built in early June 2020.  PAssword generator works.  creates passwords between 8 and 128 charecters.  with the option to include lowercase letters, upercase letters, numbers and symbols.
+
+Last edit was 7/9/2020 by Brian O'leary.  Contact oleary.brian1@gmail.com with any questions.
+
+## **Screenshot:**
+
+![Large about me screen shot](screenshot.JPG)
+
+
+
+## **Original assignment description below:**
 # 04 Web APIs: Code Quiz
 
 As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
