@@ -54,7 +54,7 @@ function timer() { //begin the timer
         if (secondsLeft <= -1) { //moved from 0 to -1 do display would count down to 1, moved from === to <= so that it can't go negative
             clearInterval(timerInterval);
             timeEl.textContent = "times up!"
-            finalScore = (score * 3) + secondsLeft +1  //sums up score and time for a final score
+            finalScore = (score * 3) + secondsLeft + 1  //sums up score and time for a final score
             finalScoreEl.innerText = 'Your score is: ' + finalScore;
             startButton.innerText = 'restart'
             startButton.classList.remove('hide')
@@ -63,7 +63,7 @@ function timer() { //begin the timer
         }
         if (currentQuestionIndex == Questions.length) {
             clearInterval(timerInterval); //timer stops now
-            finalScore = (score * 3) + secondsLeft +1  //sums up score and time for a final score
+            finalScore = (score * 3) + secondsLeft + 1  //sums up score and time for a final score
             finalScoreEl.innerText = 'Your score is: ' + finalScore;
 
         }
@@ -76,7 +76,6 @@ function timer() { //begin the timer
 username.addEventListener("keyup", () => { //if there is text in the username box, save score button is enabled
     saveScoreButton.disabled = !username.value
 });
-saveScoreButton.addEventListener()
 
 
 saveHighScore = e => {
@@ -94,7 +93,7 @@ saveHighScore = e => {
     printHighScores();
     gameOverEl.classList.add('hide');
     submittedEl.classList.remove('hide')
-
+    username.placeholder("Enter your name?")
 };
 function printHighScores() {
     highScoresList.innerHTML = ""
@@ -138,8 +137,8 @@ function selectAnswer(e) {
     currentQuestionIndex++;
     answerButtonEl.disabled;
 
-    if (Questions.length > currentQuestionIndex ) { //checks for more questions
-    // if (currentQuestionIndex + 1 <= Questions.length ) { //checks for more questions
+    if (Questions.length > currentQuestionIndex) { //checks for more questions
+        // if (currentQuestionIndex + 1 <= Questions.length ) { //checks for more questions
 
         setTimeout(() => {
 
