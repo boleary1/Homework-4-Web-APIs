@@ -93,7 +93,7 @@ saveHighScore = e => {
     printHighScores();
     gameOverEl.classList.add('hide');
     submittedEl.classList.remove('hide')
-    username.placeholder("Enter your name?")
+    username.value = ""
 };
 function printHighScores() {
     highScoresList.innerHTML = ""
