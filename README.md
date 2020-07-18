@@ -12,8 +12,10 @@ Last edit was 7/18/2020 by Brian O'leary.  Contact oleary.brian1@gmail.com with 
 
 ## **Screenshot:**
 
-![Large about me screen shot](screenshot.JPG)
-
+![Home screen](home screen.JPG)
+![High scores](highscores.JPG)
+![question screen](question.JPG)
+![finished screen](finished.JPG)
 
 
 ## **Original assignment description below:**
