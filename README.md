@@ -12,7 +12,7 @@ Last edit was 7/18/2020 by Brian O'leary.  Contact oleary.brian1@gmail.com with 
 
 ## **Screenshot:**
 
-![Home screen](home screen.JPG)
+![Home screen](homescreen.JPG)
 ![High scores](highscores.JPG)
 ![question screen](question.JPG)
 ![finished screen](finished.JPG)
