@@ -200,20 +200,12 @@ const Questions = [
         ]
     },
     {
-        question: 'what is 2 + 8',
-        answers: [
-            { text: '10', correct: true },
-            { text: '22', correct: false },
-            { text: '92', correct: false },
-            { text: '29', correct: false }
-        ]
-    },
-    {
         question: 'Where is the correct place to insert a JavaScript?',
         answers: [
             { text: 'The <head> section', correct: false },
             { text: 'Both the <head> section and the <body> section are correct', correct: true },
-            { text: 'The <body> section  ', correct: false }
+            { text: 'The <body> section', correct: false }
+            { text: 'None of the above', correct: false }
         ]
     },
     {
